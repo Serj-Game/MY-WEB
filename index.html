@@ -3,8 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>Мой сайт</title>
+  <style>
+      .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+      }
+      .form-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+       input[type="submit"] {
+        width: 100%;
+        height: 30px;
+        background-color: rgb(200, 142, 202);
+       }
+       input[type="submit"]:hover {
+        cursor: pointer;
+        background-color: rgb(134, 81, 136);
+       }
+       input[type="submit"]:active {
+        background-color: rgb(36, 224, 134);
+       }
+  </style>
 </head>
 <body>
-  <h1>Привет из новой ветки!</h1>
+<div class="container">
+ <h1>Registration form</h1>
+<form>
+  <div class="form-input">
+    <label for="name-input">Enter your name</label>
+    <input type="text" id="name-input" placeholder="Name"/>
+  </div>
+    <div class="form-input">
+      <label for="password-input">Enter your password</label>
+    <input type="password" id="password-input" placeholder="Password"/>
+    </div>
+    <div class="form-input">
+      <label for="user-type-input">Select user type</label>
+       <select id="user-type-input">
+        <option value="Admin">Admin</option>
+        <option value="Moderator">Moderator</option>
+        <option value="User">User</option>
+    </select>
+    </div>
+    <input type="submit" value="Sumbit form"/>
+</form>
+</div>
 </body>
 </html>
