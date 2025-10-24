@@ -5,8 +5,8 @@
   <title>My WEB</title>
   <style>
       .form-container {
-        width: 100vh;
-        height: 100vw;
+        width: 100vw;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -42,8 +42,11 @@
         cursor: pointer;
         background-color: darkcyan;
        }
-       .submit-input{
-        background-color:red ;
+       .input-error{
+        border-color:red ;
+       }
+       .error-message {
+        color: red;
        }
   </style>
 </head>
@@ -51,7 +54,7 @@
 <div class="form-container">
  <h1>Registration form</h1>
 <form>
-  <div class="form-input">
+  <div class="form-input" id="name-input-container">
     <label for="user-name-input">Enter your name</label>
     <input id="user-name-input" type="text" placeholder="Name">
   </div>
@@ -68,38 +71,49 @@
     </select>
     </div>
 </form>
-<div onclick="divClickHandler()">
-    <button id="submit-input" disabled>Submit button</button>
-    <button id="enable-submit" onclick="enableHandler()">Enable</button>
-    <button id="add-listener" onclick="addListener()">Add listener</button>
-    <button id="disable-submit"onclick="disableHandler()">Disable</button>
-</div>
+
+ <button id="submit-input">Submit button</button>
+
 
 </div>
 <script type="text/javascript">
-      const button = document.querySelector("#submit-input");
+       const nameInput = document.querySelector("#user-name-input");
+  const container = document.querySelector("#name-input-container");
 
-      const itWorksListener = () => {
-          console.log("It works");
-      }
+  let errorElement = null; // ← будем хранить ссылку на элемент ошибки
 
-      const divClickHandler = () => {
-          console.log("div clicked");
-      }
+  nameInput.addEventListener("blur", () => {
+    // Удаляем старую ошибку (если есть)
+    if (errorElement) {
+      errorElement.remove();
+      errorElement = null;
+    }
 
-      function enableHandler () {
-        button.disabled = false;
-      }
+    const value = nameInput.value.trim();
 
-      function addListener() {
-        button.addEventListener("click", itWorksListener);
-        }
+    if (!value || value.length < 4) {
+      nameInput.classList.add("input-error");
 
-      function disableHandler () {
-        button.disabled = true;
-        button.removeEventListener("click", itWorksListener);
-      }
+      // Создаём новый элемент ошибки
+      errorElement = document.createElement("p");
+      errorElement.className = "error-message";
+      errorElement.textContent = "Name field is required";
 
+      // Добавляем в контейнер
+      container.appendChild(errorElement);
+    } else {
+      nameInput.classList.remove("input-error");
+    }
+  });
+
+  nameInput.addEventListener("focus", () => {
+    // При фокусе — убираем красную рамку и ошибку
+    nameInput.classList.remove("input-error");
+    if (errorElement) {
+      errorElement.remove();
+      errorElement = null;
+    }
+  });
 
 
 </script>
