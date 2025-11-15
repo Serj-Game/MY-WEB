@@ -35,13 +35,25 @@
         margin: 40px;
       }
 
-       input[type="submit"] {
-        background-color: turquoise;
-       }
-       input[type="submit"]:hover {
-        cursor: pointer;
-        background-color: darkcyan;
-       }
+      #submit-input {
+        background-color: #ff69b4;       
+        color: white;                    
+        border: none;                    
+        border-radius: 6px;              
+        padding: 6px 12px;              
+        font-size: 13px;                 
+        cursor: pointer;                 
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+        transition: all 0.2s ease;
+        min-width: auto;          
+        width: auto; 
+      }
+
+      #submit-input:hover {
+        background-color: #ff1493;       
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); 
+        transform: translateY(-1px);    
+      }
        .input-error{
         border-color:red ;
        }
@@ -53,26 +65,25 @@
 <body>
 <div class="form-container">
  <h1>Registration form</h1>
-<form>
+<form action="/req-data" method="post">
   <div class="form-input" id="name-input-container">
     <label for="user-name-input">Enter your name</label>
-    <input id="user-name-input" type="text" placeholder="Name">
+    <input id="user-name-input" type="text" placeholder="Name" name="username">
   </div>
     <div class="form-input">
       <label for="password-input">Enter your password</label>
-      <input id="password-input" type="password" placeholder="Password">
+      <input id="password-input" type="password" placeholder="Password" name="password">
     </div>
     <div class="form-input">
       <label for="user-type-input">Select your role</label>
-       <select id="user-type-input">
+       <select id="user-type-input" name="role">
         <option value="0">Admin</option>
         <option value="1">Moderator</option>
         <option value="2">User</option>
     </select>
     </div>
+    <button id="submit-input" type="submit">Submit button</button>
 </form>
-
- <button id="submit-input">Submit button</button>
 
 
 </div>
