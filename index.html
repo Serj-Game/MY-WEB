@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <title>My WEB</title>
@@ -36,7 +36,7 @@
       }
 
       #submit-input {
-        background-color: #ff69b4;       
+        background-color: #5e64e1;       
         color: white;                    
         border: none;                    
         border-radius: 6px;              
@@ -50,7 +50,7 @@
       }
 
       #submit-input:hover {
-        background-color: #ff1493;       
+        background-color: #1b21d4;       
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); 
         transform: translateY(-1px);    
       }
@@ -64,25 +64,25 @@
 </head>
 <body>
 <div class="form-container">
- <h1>Registration form</h1>
+ <h1>Форма регистрации</h1>
 <form action="/req-data" method="post">
   <div class="form-input" id="name-input-container">
-    <label for="user-name-input">Enter your name</label>
-    <input id="user-name-input" type="text" placeholder="Name" name="username">
+    <label for="user-name-input">Введи свое имя</label>
+    <input id="user-name-input" type="text" placeholder="Имя" name="username">
   </div>
     <div class="form-input">
-      <label for="password-input">Enter your password</label>
-      <input id="password-input" type="password" placeholder="Password" name="password">
+      <label for="password-input">Введи свой пароль</label>
+      <input id="password-input" type="password" placeholder="Пароль" name="password">
     </div>
     <div class="form-input">
-      <label for="user-type-input">Select your role</label>
+      <label for="user-type-input">Выбери свою роль</label>
        <select id="user-type-input" name="role">
-        <option value="0">Admin</option>
-        <option value="1">Moderator</option>
-        <option value="2">User</option>
+        <option value="0">Админ</option>
+        <option value="1">Модератор</option>
+        <option value="2">Пользователь</option>
     </select>
     </div>
-    <button id="submit-input" type="submit">Submit button</button>
+    <button id="submit-input" type="submit">Подтвердить</button>
 </form>
 
 

@@ -19,7 +19,36 @@ app.post('/req-data', (req, res) => {
     if(err) {
       res.status(500).send("User not addad")
     } else {
-      res.status(201).send("User addad")
+      res.status(201).send(`
+        <!DOCTYPE html>
+        <html lang="ru">
+        <head>
+          <meta charset="UTF-8">
+          <title>Ваша регистрация важна для нас!!!!</title>
+          <style>
+            body {
+              margin: 0;
+              padding: 0;
+              height: 100vh;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #f9f9f9;
+              font-family: Arial, sans-serif;
+            }
+            .message {
+              font-size: 2.5rem; 
+              color: #ff69b4;   
+              text-align: center;
+              font-weight: bold;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="message">Ваша регистрация важна для нас!!!!!!</div>
+        </body>
+        </html>
+      `);
     }
   })
 });
