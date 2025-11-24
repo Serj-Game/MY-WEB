@@ -1,0 +1,12 @@
+{"username":"User 3"}{"username":"User 4"}{"username":"User 45"}
+{"username":"User 5"}
+{"username":"Serega","password":"15nn5","role":"0"}
+{"username":"Serega","password":"15nn5","role":"0"}
+{"username":"Serega","password":"15nn5","role":"2"}
+{"username":"Serega","password":"15nn5","role":"0"}
+{"username":"Serega","password":"15nn5","role":"1"}
+{"username":"Витек","password":"124578","role":"2"}
+{"username":"Вася","password":"1212","role":"0"}
+{"username":"Вася","password":"12124","role":"1"}
+{"username":"","password":"121246","role":"1"}
+{"username":"Катя","password":"8898987","role":"2"}

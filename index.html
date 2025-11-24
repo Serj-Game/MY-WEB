@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>My WEB</title>
+  <style>
+      .form-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+      .form-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #user-name-input, #user-type-input, #password-input, #submit-input {
+        width: 350px;
+        height: 25px;
+        padding: 20px;
+      }
+      label {
+        margin: 40px;
+      }
+
+      #submit-input {
+        background-color: #5e64e1;       
+        color: white;                    
+        border: none;                    
+        border-radius: 6px;              
+        padding: 6px 12px;              
+        font-size: 13px;                 
+        cursor: pointer;                 
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+        transition: all 0.2s ease;
+        min-width: auto;          
+        width: auto; 
+      }
+
+      #submit-input:hover {
+        background-color: #1b21d4;       
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); 
+        transform: translateY(-1px);    
+      }
+       .input-error{
+        border-color:red ;
+       }
+       .error-message {
+        color: red;
+       }
+  </style>
+</head>
+<body>
+<div class="form-container">
+ <h1>Форма регистрации</h1>
+<form action="/req-data" method="post">
+  <div class="form-input" id="name-input-container">
+    <label for="user-name-input">Введи свое имя</label>
+    <input id="user-name-input" type="text" placeholder="Имя" name="username">
+  </div>
+    <div class="form-input">
+      <label for="password-input">Введи свой пароль</label>
+      <input id="password-input" type="password" placeholder="Пароль" name="password">
+    </div>
+    <div class="form-input">
+      <label for="user-type-input">Выбери свою роль</label>
+       <select id="user-type-input" name="role">
+        <option value="0">Админ</option>
+        <option value="1">Модератор</option>
+        <option value="2">Пользователь</option>
+    </select>
+    </div>
+    <button id="submit-input" type="submit">Подтвердить</button>
+</form>
+
+
+</div>
+<script type="text/javascript">
+       const nameInput = document.querySelector("#user-name-input");
+  const container = document.querySelector("#name-input-container");
+
+  let errorElement = null; 
+
+  nameInput.addEventListener("blur", () => {
+    if (errorElement) {
+      errorElement.remove();
+      errorElement = null;
+    }
+
+    const value = nameInput.value.trim();
+
+    if (!value || value.length < 4) {
+      nameInput.classList.add("input-error");
+
+      errorElement = document.createElement("p");
+      errorElement.className = "error-message";
+      errorElement.textContent = "Name field is required";
+
+      container.appendChild(errorElement);
+    } else {
+      nameInput.classList.remove("input-error");
+    }
+  });
+
+  nameInput.addEventListener("focus", () => {
+    nameInput.classList.remove("input-error");
+    if (errorElement) {
+      errorElement.remove();
+      errorElement = null;
+    }
+  });
+
+
+</script>
+</body>
+</html>
